@@ -1,0 +1,1 @@
+# Arifmetik-progressiya
