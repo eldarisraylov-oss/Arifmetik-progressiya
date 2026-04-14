@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arifmetik</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+/* Bosh sahifa */
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.primary {
+    background: #22c55e;
+}
+
+.secondary {
+    background: #3b82f6;
+}
+
+/* Rasm sahifasi */
+#viewer {
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+}
+
+img {
+    width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+/* Tugmalar pastda */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav button {
+    width: 48%;
+    font-size: 16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Bosh sahifa -->
+<div id="home">
+    <button class="primary" onclick="alert('Bu qism keyin qo‘shiladi')">
+        Mavzuni takrorlash
+    </button>
+
+    <button class="secondary" onclick="startViewer()">
+        Nazorat ishi savollari
+    </button>
+</div>
+
+<!-- Rasm ko‘rish -->
+<div id="viewer">
+    <img id="image" src="1.jpg">
+
+    <div class="nav">
+        <button onclick="prevImage()">⬅️ Orqaga</button>
+        <button onclick="nextImage()">Oldinga ➡️</button>
+    </div>
+</div>
+
+<script>
+let current = 1;
+let total = 10; // 🔴 BU YERNI O'ZGARTIRASAN (rasmlar soni)
+
+function startViewer() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("viewer").style.display = "flex";
+}
+
+function showImage() {
+    document.getElementById("image").src = current + ".jpg";
+}
+
+function nextImage() {
+    if (current < total) {
+        current++;
+        showImage();
+    }
+}
+
+function prevImage() {
+    if (current > 1) {
+        current--;
+        showImage();
+    }
+}
+</script>
+
+</body>
+</html>
